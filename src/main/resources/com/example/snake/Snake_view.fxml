@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.canvas.Canvas?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.snake.SnakeController" prefWidth="500" prefHeight="600">
+    <!-- Canvas centré -->
+    <Canvas fx:id="gameCanvas" width="400" height="400" />
+
+    <!-- Espacement flexible pour pousser les boutons vers le bas -->
+    <Region VBox.vgrow="ALWAYS" />
+
+    <!-- Conteneur pour centrer les boutons horizontalement -->
+    <HBox spacing="10.0">
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Démarrer" onAction="#startGame" />
+        <Button text="Quitter" onAction="#exitGame"/>
+        <Region HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" minHeight="125" />
+    </HBox>
+</VBox>
