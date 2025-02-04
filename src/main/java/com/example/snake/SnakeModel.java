@@ -110,7 +110,7 @@ public class ModelSnake {
     }
 
     // Modifie la direction du serpent
-    public static void setDirection(Direction newDirection) {
+    public void setDirection(Direction newDirection) {
         this.direction = newDirection;
     }
 
