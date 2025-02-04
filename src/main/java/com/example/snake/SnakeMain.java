@@ -27,7 +27,7 @@ public class SnakeMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception
-    {
+    {git remote add origin https://github.com/VongsavanhKevin/Snake-Game.git
         primaryStage.setTitle("Snake");
         Group root = new Group();
         Canvas canvas = new Canvas(WIDTH, HEIGHT);
