@@ -13,53 +13,19 @@ import javafx.scene.canvas.Canvas;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 public class SnakeMain extends Application {
-
-    private static final int WIDTH = 800;
-    private static final int HEIGHT = WIDTH;
-    private static final int ROWS = 20;
-    private static final int COLUMNS = ROWS;
-    private static final int SQARE_SIZE = WIDTH/ROWS;
-
-
-    private GraphicsContext gc;
-
     @Override
-    public void start(Stage primaryStage) throws Exception
-    {git remote add origin https://github.com/VongsavanhKevin/Snake-Game.git
-        primaryStage.setTitle("Snake");
-        Group root = new Group();
-        Canvas canvas = new Canvas(WIDTH, HEIGHT);
-        root.getChildren().add(canvas);
-        Scene scene = new Scene(root, WIDTH, HEIGHT);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        gc = canvas.getGraphicsContext2D();
-        run();
+    public void start(Stage primaryStage) {
+        SnakeModel snakeModel = new SnakeModel();
+        SnakeView snakeView = new SnakeView();
+        SnakeController controller = new SnakeController(snakeModel, snakeView);
+        controller.start(primaryStage); // Démarrer le jeu via le contrôleur
     }
 
-    private void run()
-    {
-        drawBackGround(gc);
-    }
-
-    private void drawBackGround(GraphicsContext gc)
-    {
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLUMNS; j++) {
-                if ((i + j) % 2 == 0) {
-                    gc.setFill(Color.web("#1E4620"));
-                } else {
-                    gc.setFill(Color.web("#2C7038"));
-                }
-                gc.fillRect(i * SQARE_SIZE, j * SQARE_SIZE, SQARE_SIZE, SQARE_SIZE);
-            }
-        }
-    }
-
-    public static void main(String[] args)
-    {
-        launch(args);
+    public static void main(String[] args) {
+        launch(args); // Lancer JavaFX
     }
 }
