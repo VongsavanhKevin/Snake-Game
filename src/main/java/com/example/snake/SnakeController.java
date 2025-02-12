@@ -13,16 +13,15 @@ public class SnakeController {
 
 
     public SnakeController(SnakeModel model, SnakeView view) {
-        this.model = new SnakeModel();
+        this.model = new SnakeModel(gc);
         this.view = new SnakeView();
     }
 
 
     public void start(Stage primaryStage) {
-        // Création de la scène et du canvas
         Group root = new Group();
         Canvas canvas = new Canvas(SnakeModel.WIDTH, SnakeModel.HEIGHT);
-        gc = canvas.getGraphicsContext2D(); // 🔹 Initialisation de gc
+        gc = canvas.getGraphicsContext2D();
 
         root.getChildren().add(canvas);
         Scene scene = new Scene(root, SnakeModel.WIDTH, SnakeModel.HEIGHT);
@@ -30,11 +29,14 @@ public class SnakeController {
         primaryStage.setTitle("Snake Game");
         primaryStage.show();
 
-        // 🔹 Initialisation du modèle avec gc
-        model = new SnakeModel();
+
+        model = new SnakeModel(gc);
         view = new SnakeView();
 
-        // Dessiner l’arrière-plan
+
         model.drawBackGround(gc);
+        model.drawFood(gc);
+        model.drawSnake(gc);
+
     }
 }

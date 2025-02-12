@@ -17,9 +17,10 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class SnakeMain extends Application {
-    @Override
+    private GraphicsContext gc;
+
     public void start(Stage primaryStage) {
-        SnakeModel snakeModel = new SnakeModel();
+        SnakeModel snakeModel = new SnakeModel(gc);
         SnakeView snakeView = new SnakeView();
         SnakeController controller = new SnakeController(snakeModel, snakeView);
         controller.start(primaryStage); // Démarrer le jeu via le contrôleur

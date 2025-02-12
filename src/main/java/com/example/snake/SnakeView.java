@@ -13,7 +13,7 @@ public class SnakeView
     private SnakeController controller;
 
     public SnakeView() {
-        this.model = new SnakeModel();
+        this.model = new SnakeModel(gc);
         this.canvas = new Canvas();
         this.gc = canvas.getGraphicsContext2D();
     }
