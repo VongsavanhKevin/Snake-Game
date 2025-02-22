@@ -20,7 +20,7 @@ public class SnakeMain extends Application {
     private GraphicsContext gc;
 
     public void start(Stage primaryStage) {
-        SnakeModel snakeModel = new SnakeModel(gc);
+        SnakeModel snakeModel = new SnakeModel();
         SnakeView snakeView = new SnakeView();
         SnakeController controller = new SnakeController(snakeModel, snakeView);
         controller.start(primaryStage); // Démarrer le jeu via le contrôleur
